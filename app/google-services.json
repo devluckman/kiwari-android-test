@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "127313208131",
+    "firebase_url": "https://chataja-test.firebaseio.com",
+    "project_id": "chataja-test",
+    "storage_bucket": "chataja-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127313208131:android:9dc97bf31cec7fd5d985f6",
+        "android_client_info": {
+          "package_name": "com.man.kiwari"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "127313208131-7hvo66899tpvrjssjoiag8s620ajdgs8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.man.kiwari",
+            "certificate_hash": "a85f879375a1d5b5595529aee5f63824322d9157"
+          }
+        },
+        {
+          "client_id": "127313208131-mali8h8bjnnsgtan67e0jvsq0o5ssl8a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB32jo4VSTWcTnLGWkDhCm8IJOdVaYIRug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127313208131-mali8h8bjnnsgtan67e0jvsq0o5ssl8a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
