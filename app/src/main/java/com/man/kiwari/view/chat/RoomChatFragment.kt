@@ -9,13 +9,11 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.man.kiwari.App
-import com.man.kiwari.utils.Preference
-import com.man.kiwari.main.InterfaceActivity
 import com.man.kiwari.R
 import com.man.kiwari.adapter.ChatAdapter
+import com.man.kiwari.main.InterfaceActivity
 import com.man.kiwari.model.Chats
-import com.man.kiwari.view.login.LoginPresenter
+import com.man.kiwari.utils.Preference
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_room_chat.*
 import java.util.*
