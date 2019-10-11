@@ -4,4 +4,6 @@ import com.man.kiwari.model.Chats
 
 interface RoomChatContract {
     fun fetchData(list : List<Chats>)
+
+    fun failedFetchData(msg : String)
 }

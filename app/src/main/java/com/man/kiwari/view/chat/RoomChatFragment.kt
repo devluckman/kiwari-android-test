@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.man.kiwari.R
@@ -83,6 +84,10 @@ class RoomChatFragment : Fragment(), RoomChatContract {
                 smoothScrollToPosition(list.size - 1)
             }
         }
+    }
+
+    override fun failedFetchData(msg: String) {
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
     private fun closeKeyboard() {

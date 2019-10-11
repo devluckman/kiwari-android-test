@@ -26,7 +26,7 @@ class RoomChatPresenter {
             }
 
             override fun onCancelled(data: DatabaseError) {
-                /*nothing last forever, we change the future*/
+                roomView!!.failedFetchData(data.message)
             }
         })
     }
