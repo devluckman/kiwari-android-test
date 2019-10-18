@@ -1,4 +1,4 @@
-package com.man.kiwari.view.login
+package com.man.kiwari.view.register
 
 
 import android.content.Context
@@ -8,21 +8,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.man.kiwari.BuildConfig
 import com.man.kiwari.R
 import com.man.kiwari.main.InterfaceActivity
-import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_register.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class LoginFragment : Fragment(), LoginContract.View {
+class RegisterFragment : Fragment(), RegisterContract {
 
     private var callback: InterfaceActivity? = null
-    private lateinit var presenter: LoginPresenter
+    private lateinit var presenter: RegisterPresenter
 
-    fun newInstance(): LoginFragment {
-        return LoginFragment()
+    fun newInstance(): RegisterFragment {
+        return RegisterFragment()
     }
 
     override fun onCreateView(
@@ -30,36 +29,39 @@ class LoginFragment : Fragment(), LoginContract.View {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        return inflater.inflate(R.layout.fragment_register, container, false)
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupPresenter()
-        txtUrls.text = BuildConfig.BASE_URL
-        btnLogin.setOnClickListener {
-            if (validation()){
-                callback!!.showLoading()
-                presenter.postLogin(edt_email.text.toString(), edt_password.text.toString())
-            }
-        }
 
-        btnRegis.setOnClickListener {
-            callback!!.register()
+        reg_btnRegis.setOnClickListener {
+            if (validationInput()) {
+                callback!!.showLoading()
+                presenter.postRegisterUser(
+                    reg_edt_username.text.toString(),
+                    reg_edt_email.text.toString(),
+                    reg_edt_password.text.toString()
+                )
+            }else{
+                alert("Please input data")
+            }
         }
     }
 
-    private fun validation() : Boolean{
-        return when{
-            edt_email.text.toString().isNotEmpty() &&
-                    edt_password.text.toString().isNotEmpty() -> true
+    private fun validationInput(): Boolean {
+        return when {
+            reg_edt_username.text.toString().isNotEmpty() &&
+                    reg_edt_email.text.toString().isNotEmpty() &&
+                    reg_edt_password.text.toString().isNotEmpty() -> true
             else -> false
         }
     }
 
-    private fun setupPresenter(){
-        presenter = LoginPresenter()
+    private fun setupPresenter() {
+        presenter = RegisterPresenter()
         presenter.subscribe(this)
     }
 
@@ -68,11 +70,14 @@ class LoginFragment : Fragment(), LoginContract.View {
         callback!!.openRoom()
     }
 
-    override fun onFailedLogin(msg : String) {
+    override fun onFailedLogin(msg: String) {
+        alert(msg)
+    }
+
+    private fun alert(msg : String){
         callback!!.dismissLoading()
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
-
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -84,4 +89,5 @@ class LoginFragment : Fragment(), LoginContract.View {
         callback = null
         presenter.unsubscribe()
     }
+
 }

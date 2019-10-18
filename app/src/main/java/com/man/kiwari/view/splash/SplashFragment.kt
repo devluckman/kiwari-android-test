@@ -39,7 +39,7 @@ class SplashFragment : Fragment() {
             if (Preference.getUid() != Preference.empty){
                 callback!!.openRoom()
             }else{
-                callback!!.logout()
+                callback!!.login()
             }
         },3000)
 

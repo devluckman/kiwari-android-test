@@ -60,7 +60,7 @@ class RoomChatFragment : Fragment(), RoomChatContract {
 
         btnLogout.setOnClickListener {
             Preference.remove()
-            callback!!.logout()
+            callback!!.login()
         }
     }
 

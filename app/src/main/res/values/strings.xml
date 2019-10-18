@@ -6,4 +6,16 @@
     <string name="input_chat">Enter message here!</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
+
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+
+
+    <string name="SERVER_KEY">AAAAHaR1Y0M:APA91bHzr_pygnuLy2I9XoQKJgl-T-uReRwrND5zBIFhkE5BXQP0AHqJk9ipIUI9ZUzeM0DTq6ZvJiV1aVIImoc87u_vePSvuuXlYv-pmNw8AG8RkP-9IccQzwRC98_BF-Pjrdg_2reW</string>
+
+    <string name="API_KEY">https://fcm.googleapis.com/fcm/send</string>
+
+    <string name="contentType">application/json</string>
+    <string name="user_name">User Name</string>
+    <string name="register">Register</string>
+
 </resources>
