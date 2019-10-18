@@ -18,4 +18,11 @@
     <string name="user_name">User Name</string>
     <string name="register">Register</string>
 
+    <!--State-->
+    <string name="sport">sport</string>
+    <string name="game">game</string>
+    <string name="event">event</string>
+    <string name="dashboard">dashboard</string>
+
+
 </resources>

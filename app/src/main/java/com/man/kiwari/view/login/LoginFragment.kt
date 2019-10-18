@@ -65,7 +65,7 @@ class LoginFragment : Fragment(), LoginContract.View {
 
     override fun onSuccessLogin() {
         callback!!.dismissLoading()
-        callback!!.openRoom()
+        callback!!.operDahsboard()
     }
 
     override fun onFailedLogin(msg : String) {

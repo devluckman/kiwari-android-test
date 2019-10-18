@@ -67,7 +67,7 @@ class RegisterFragment : Fragment(), RegisterContract {
 
     override fun onSuccessLogin() {
         callback!!.dismissLoading()
-        callback!!.openRoom()
+        callback!!.operDahsboard()
     }
 
     override fun onFailedLogin(msg: String) {

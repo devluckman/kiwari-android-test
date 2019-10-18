@@ -24,7 +24,7 @@ android {
     }
 
     flavorDimensions "default"
-    productFlavors{
+    productFlavors {
         free {
             buildConfigField "String", "BASE_URL", '"http://freeapps.com/api/"'
         }

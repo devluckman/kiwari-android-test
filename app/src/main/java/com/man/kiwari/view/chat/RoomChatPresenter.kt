@@ -8,14 +8,13 @@ import com.man.kiwari.model.Chats
 import java.util.*
 
 class RoomChatPresenter {
-
+    private var path : String? = null
     private var roomView: RoomChatContract? = null
 
     fun fetchData (){
         val mutableList : MutableList<Chats> = mutableListOf()
-        App.mReference.child("chats").addListenerForSingleValueEvent(object : ValueEventListener{
+        App.mReference.child("room").child(path!!).addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(data: DataSnapshot) {
-
                 val list = data.children
                 list.forEach {
                     val key = it.key
@@ -32,15 +31,17 @@ class RoomChatPresenter {
     }
 
     fun postData (data : Chats){
-        App.mReference.child("chats").child(Date().time.toString()).setValue(data)
+        App.mReference.child("room").child(path!!).child(Date().time.toString()).setValue(data)
         fetchData()
     }
 
-    fun subscribe(view: RoomChatContract) {
+    fun subscribe(view: RoomChatContract, roomId : String) {
+        this.path = roomId
         this@RoomChatPresenter.roomView = view
     }
 
     fun unsubscribe() {
+        this.path = null
         this@RoomChatPresenter.roomView = null
     }
 
