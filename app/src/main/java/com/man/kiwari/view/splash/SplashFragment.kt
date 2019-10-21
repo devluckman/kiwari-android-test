@@ -37,9 +37,9 @@ class SplashFragment : Fragment() {
 
         Handler().postDelayed({
             if (Preference.getUid() != Preference.empty){
-                callback!!.openRoom()
+                callback!!.operDahsboard()
             }else{
-                callback!!.logout()
+                callback!!.login()
             }
         },3000)
 

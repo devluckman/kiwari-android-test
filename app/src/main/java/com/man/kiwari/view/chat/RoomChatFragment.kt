@@ -24,12 +24,22 @@ import java.util.*
  */
 class RoomChatFragment : Fragment(), RoomChatContract {
 
-
     private var callback: InterfaceActivity? = null
     private lateinit var presenter: RoomChatPresenter
     private var rvAdapter: ChatAdapter? = null
-    fun newInstance(): RoomChatFragment {
-        return RoomChatFragment()
+    private var bundle = Bundle()
+
+    fun newInstance(bundle: Bundle?): RoomChatFragment {
+        val fragment = RoomChatFragment()
+        fragment.arguments = bundle
+        return fragment
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            bundle = it
+        }
     }
 
     override fun onCreateView(
@@ -60,13 +70,13 @@ class RoomChatFragment : Fragment(), RoomChatContract {
 
         btnLogout.setOnClickListener {
             Preference.remove()
-            callback!!.logout()
+            callback!!.login()
         }
     }
 
     private fun setupPresenter() {
         presenter = RoomChatPresenter()
-        presenter.subscribe(this)
+        presenter.subscribe(this, bundle.getString("id")!!)
     }
 
     private fun setupView() {
